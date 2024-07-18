@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-y1_^z&neuz9ov6@!t!a=6k7#h3w_p@euk$_lds!n*_3kvkg6=)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.zmrenwu.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '172.24.103.240']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'comments.apps.CommentsConfig',
+    'pure_pagination',  # 分页
 ]
 
 MIDDLEWARE = [
@@ -122,9 +123,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = '/home/missanchor/cs/myblog/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+PAGINATION_SETTINGS = {
+    'PAGE_RANGE_DISPLAYED': 4, # 分页条当前页前后应该显示的总页数（两边均匀分布，因此要设置为偶数），
+    'MARGIN_PAGES_DISPLAYED': 2, # 分页条开头和结尾显示的页数
+    'SHOW_FIRST_PAGE_WHEN_INVALID': True, # 当请求了不存在页，显示第一页
+}
+

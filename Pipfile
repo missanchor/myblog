@@ -7,6 +7,11 @@ name = "pypi"
 django = "*"
 markdown = "*"
 gunicorn = "*"
+faker = "*"
+django-pure-pagination = "*"
+django-haystack-elasticsearch5 = "*"
+elasticsearch = "==2.4.1"
+six = "*"
 
 [dev-packages]
 

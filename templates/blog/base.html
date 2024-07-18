@@ -28,6 +28,11 @@
         padding-right: 5px;
       }
 
+      /* 搜索关键词高亮 */
+      span.highlighted {
+          color: red;
+        }
+
       .hljs-ln-n {
         width: 30px;
       }
@@ -119,12 +124,10 @@
                 ><span id="search-icon" class="ion-ios-search-strong"></span
               ></a>
               <div id="search-form" class="search-form">
-                <form role="search" method="get" id="searchform" action="#">
-                  <input type="search" placeholder="搜索" required />
-                  <button type="submit">
-                    <span class="ion-ios-search-strong"></span>
-                  </button>
-                </form>
+                <form role="search" method="get" id="searchform" action="{% url 'blog:search' %}">
+                  <input type="search" name="q" placeholder="搜索" required>
+                  <button type="submit"><span class="ion-ios-search-strong"></span></button>
+                </form>              
               </div>
             </div>
           </div>
@@ -147,10 +150,8 @@
             {% block toc %} {% endblock toc %} {% show_recent_posts %}
             {%show_archives %} {% show_categories %} {% show_tags %}
             <div class="rss">
-              <a href=""
-                ><span class="ion-social-rss-outline"></span> RSS 订阅</a
-              >
-            </div>
+              <a href="{% url 'rss' %}"><span class="ion-social-rss-outline"></span> RSS 订阅</a>
+          </div>          
           </aside>
         </div>
       </div>
